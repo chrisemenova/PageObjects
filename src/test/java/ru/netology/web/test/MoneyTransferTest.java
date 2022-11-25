@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class MoneyTransferTest {
     @Test
 
-    void ShouldTransferFromFirstToSecond() {
+    void ShouldTransferFromFirstToSecond() throws InterruptedException {
         var loginPage = open("http://localhost:9999", LoginPage.class);
         var authInfo = DataHelper.getAuthInfo();
         var verificationPage = loginPage.validLogin(authInfo);
