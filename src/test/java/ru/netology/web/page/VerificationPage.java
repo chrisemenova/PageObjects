@@ -14,9 +14,8 @@ public class VerificationPage {
     @FindBy(css = "[data-test-id=action-verify]")
     private SelenideElement verifyButton;
 
-    public VerificationPage(){
-        codeField.shouldBe(visible);
-    }
+//    public VerificationPage(){codeField.shouldBe(visible);
+//    }
 
     public DashboardPage validVerify(DataHelper.VerificationCode verificationCode) {
         codeField.setValue(verificationCode.getCode());

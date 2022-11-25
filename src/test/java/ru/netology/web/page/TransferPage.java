@@ -21,11 +21,16 @@ public class TransferPage {
 
     public TransferPage() {
         transferHead.shouldBe(visible);
-
-        public DashboardPage makeTransfer(String amountToTransfer, DataHelper.CardInfo cardInfo) {
+    }
+        public void makeTransfer(String amountToTransfer, DataHelper.CardInfo cardInfo) {
             amountInput.setValue(amountToTransfer);
             fromInput.setValue(cardInfo.getCardNumber());
             transferButton.click();
+        }
+
+        public DashboardPage makeValidTransfer(String amountToTransfer, DataHelper.CardInfo cardInfo) {
+           makeTransfer(amountToTransfer, cardInfo);
+           return new DashboardPage();
         }
 
         public void findErrorMessage (String expectedText){
@@ -33,4 +38,4 @@ public class TransferPage {
         }
 
     }
-}
+

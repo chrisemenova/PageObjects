@@ -19,12 +19,12 @@ public class DashboardPage {
     private ElementsCollection cards;
 //  private ElementsCollection cards = $$(".list__item div");
 
-    public DashboardPage() {
-        heading.shouldBe(visible);
-    }
+//    public DashboardPage() {
+//        heading.shouldBe(visible);
+//    }
 
     public int getCardBalance(DataHelper.CardInfo cardInfo) {
-    var text = cards.findBy(Condition.text(cardInfo.getCardNumber().substring(12, 16))).getText();
+    var text = cards.get(1).getText();
         return extractBalance(text);
     }
 
