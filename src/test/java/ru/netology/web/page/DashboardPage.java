@@ -8,20 +8,14 @@ import ru.netology.web.data.DataHelper;
 
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class DashboardPage {
     private final String balanceStart = "баланс: ";
     private final String balanceFinish = " р.";
-    @FindBy(css = "[data-test-id=dashboard]")
-    private SelenideElement heading;
-//  private SelenideElement heading = $("[data-test-id=dashboard]");
-    @FindBy(css= ".list__item div")
-    private ElementsCollection cards;
-//  private ElementsCollection cards = $$(".list__item div");
-
-//    public DashboardPage() {
-//        heading.shouldBe(visible);
-//    }
+    private SelenideElement heading = $("[data-test-id=dashboard]");
+    private ElementsCollection cards = $$(".list__item div");
 
     public int getCardBalance(DataHelper.CardInfo cardInfo) {
     var text = cards.findBy(Condition.text(cardInfo.getCardNumber().substring(12, 16))).getText();
